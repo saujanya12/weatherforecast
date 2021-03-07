@@ -103,7 +103,7 @@ export default function Content(props) {
                             </Grid>
                         </Grid>
                         <Grid container justify='space-around' >
-                            <Grid item center >
+                            <Grid item >
                                 <span className={classes.center, classes.bold}> {props.weatherData ? props.weatherData.current.temp_c + "C" : <Skeleton animation="wave" height={10} width="100px" style={{ marginTop: 6 }} />}</span>
                             </Grid>
                         </Grid>

@@ -24,6 +24,7 @@ function App() {
 
   const [city, setCity] = useState('');
   const [weatherData, setWeatherData] = useState('');
+  const [error, setError] = useState(false);
   const classes = usestyle();
 
   // fetch weather data of city entered by user.
@@ -31,8 +32,21 @@ function App() {
     let api = city ? `http://api.weatherapi.com/v1/current.json?key=4350d0234eda423896c82350210403&q=${city}&aqi=yes` : ''
     fetch(api)
       .then((res) => res.json())
-      .then((data) => { setWeatherData(data) })
-      .catch((error) => { console.log('Error' + error) })
+      .then((data) => {
+        if (data.error != undefined) {
+          setError(true);
+          setWeatherData(null);
+        }
+        else {
+          setWeatherData(data);
+          setError(false)
+        }
+      })
+      .catch((error) => {
+        setError(true)
+        setWeatherData(null);
+        console.log('Error' + error)
+      })
   }
 
   return (
@@ -47,8 +61,8 @@ function App() {
         </Grid>
 
         <Grid item xs={12}>
-          <Box align="center" py='1rem' className={classes.whitesmoke} >
-            <InputCity city={city} setCity={setCity} fetchWeatherData={fetchWeatherData} />
+          <Box align="center" pt='8px' className={classes.whitesmoke} >
+            <InputCity city={city} setCity={setCity} fetchWeatherData={fetchWeatherData} error={error} />
           </Box>
         </Grid>
 

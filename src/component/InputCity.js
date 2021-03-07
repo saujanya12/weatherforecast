@@ -1,10 +1,12 @@
 import React from 'react'
-import { Button, FormControl, InputLabel, makeStyles, OutlinedInput } from '@material-ui/core';
+import { Box, Button, FormControl, InputLabel, makeStyles, OutlinedInput, TextField } from '@material-ui/core';
+import { Alert } from '@material-ui/lab';
 
 const useStyle = makeStyles({
 
     textField: {
-        width: '30ch',
+
+        alignItems: 'center'
     }
 })
 
@@ -13,18 +15,32 @@ export default function InputCity(props) {
 
     return (
 
-        <FormControl fullWidth className={classes.textField} variant="outlined">
-            <InputLabel htmlFor="outlined-adornment-city">Enter Your City</InputLabel>
-            <OutlinedInput
+        <FormControl variant="outlined">
+            <TextField 
+            id="filled-search" 
+            label="Enter a city" 
+            type="search" 
+            variant="filled"
+            
+            onChange={((e) => { props.setCity(e.target.value); })}
+             />
+            {/* <OutlinedInput
+                className={classes.textField, classes.center}
                 id="outlined-adornment-city"
-                value={props.city}
-                onChange={((e) => { props.setCity(e.target.value); })}
+               
                 labelWidth={110}
-            />
+                placeholder="Enter city"
+            /> */}
             <Button
                 variant="contained"
                 style={{ backgroundColor: 'black', color: 'white' }}
                 onClick={props.fetchWeatherData}> Send </Button>
+            {
+                props.error ? <Box>
+                    <Alert severity="error">No matching location found.</Alert>
+                </Box> : ''
+            }
+
         </FormControl>
 
     )
