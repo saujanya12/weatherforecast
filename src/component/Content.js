@@ -48,51 +48,75 @@ export default function Content(props) {
         <>
             <Box py="2rem" className={classes.aliceblue}>
                 <Grid container spacing={2} justify='space-around' className={classes.root}>
-                    <Grid item md='auto' >
-                        <Grid container spacing={2} >
+                    <Grid item xs={6} md='auto' >
+                        <Grid container justify='space-around'>
                             <Grid item >
-                                <span className={classes.block}>REGION</span>
-                                <span className={classes.block, classes.bold}> {props.weatherData ? props.weatherData.location.region : <Skeleton animation="wave" height={10} style={{ marginTop: 6 }} />}</span>
+                                <span className={classes.center}>REGION</span>
+                            </Grid>
+                        </Grid>
+                        <Grid container justify='space-around'>
+                            <Grid item >
+                                <span className={classes.center, classes.bold}> {props.weatherData ? props.weatherData.location.region : <Skeleton animation="wave" height={10} width="100px" style={{ marginTop: 6 }} />}</span>
                             </Grid>
                         </Grid>
                     </Grid>
-                    <Grid item md='auto' >
-                        <Grid container justify='space-around' spacing={2} >
+                    <Grid item xs={6} md='auto' >
+                        <Grid container justify='space-around' >
                             <Grid item  >
-                                <span className={classes.block}>COUNTRY</span>
-                                <span className={classes.block, classes.bold}> {props.weatherData ? props.weatherData.location.country : <Skeleton animation="wave" height={10} style={{ marginTop: 6 }} />}</span>
+                                <span className={classes.center}>COUNTRY</span>
+                            </Grid>
+                        </Grid>
+                        <Grid container justify='space-around' >
+                            <Grid item  >
+                                <span className={classes.center, classes.bold}> {props.weatherData ? props.weatherData.location.country : <Skeleton animation="wave" height={10} width="100px" style={{ marginTop: 6 }} />}</span>
                             </Grid>
                         </Grid>
                     </Grid>
-                    <Grid item md='auto' >
+                    <Grid item xs={6} md='auto' >
                         <Grid container justify='space-around' spacing={2}>
                             <Grid item>
-                                <span className={classes.block}>DATE</span>
-                                <span className={classes.block, classes.bold}> {props.weatherData ? props.weatherData.location.localtime.substring(0, 10) : <Skeleton animation="wave" height={10} style={{ marginTop: 6 }} />}</span>
+                                <span className={classes.center}>DATE</span>
+                            </Grid>
+                        </Grid>
+                        <Grid container justify='space-around' >
+                            <Grid item  >
+                                <span className={classes.center, classes.bold}> {props.weatherData ? props.weatherData.location.localtime.substring(0, 10) : <Skeleton animation="wave" height={10} width="100px" style={{ marginTop: 6 }} />}</span>
                             </Grid>
                         </Grid>
                     </Grid>
-                    <Grid item md='auto' >
+                    <Grid item xs={6} md='auto' >
                         <Grid container justify='space-around' spacing={2}>
                             <Grid item>
-                                <span className={classes.block}>LAST UPDATED</span>
-                                <span className={classes.block, classes.bold}> {props.weatherData ? props.weatherData.current.last_updated : <Skeleton animation="wave" height={10} style={{ marginTop: 6 }} />}</span>
+                                <span className={classes.center}>LAST UPDATED</span>
+                            </Grid>
+                        </Grid>
+                        <Grid container justify='space-around' >
+                            <Grid item  >
+                                <span className={classes.center, classes.bold}> {props.weatherData ? props.weatherData.current.last_updated : <Skeleton animation="wave" height={10} width="100px" style={{ marginTop: 6 }} />}</span>
                             </Grid>
                         </Grid>
                     </Grid>
-                    <Grid item md='auto' >
+                    <Grid item xs={6} md='auto' >
                         <Grid container justify='space-around' spacing={2}>
                             <Grid item>
-                                <span className={classes.block}>TEMP</span>
-                                <span className={classes.block, classes.bold}> {props.weatherData ? props.weatherData.current.temp_c + "C" : <Skeleton animation="wave" height={10} style={{ marginTop: 6 }} />}</span>
+                                <span className={classes.center}>TEMP</span>
+                            </Grid>
+                        </Grid>
+                        <Grid container justify='space-around' >
+                            <Grid item center >
+                                <span className={classes.center, classes.bold}> {props.weatherData ? props.weatherData.current.temp_c + "C" : <Skeleton animation="wave" height={10} width="100px" style={{ marginTop: 6 }} />}</span>
                             </Grid>
                         </Grid>
                     </Grid>
-                    <Grid item xs='auto' >
+                    <Grid item xs={6} md='auto' >
                         <Grid container justify='space-around' spacing={2}>
                             <Grid item>
-                                <span className={classes.block}>COUNTRY</span>
-                                <span className={classes.block, classes.bold}> {props.weatherData ? props.weatherData.location.country : <Skeleton animation="wave" height={10} style={{ marginTop: 6 }} />}</span>
+                                <span className={classes.center}>COUNTRY</span>
+                            </Grid>
+                        </Grid>
+                        <Grid container justify='space-around' >
+                            <Grid item >
+                                <span className={classes.center, classes.bold}> {props.weatherData ? props.weatherData.location.country : <Skeleton animation="wave" height={10} width="100px" style={{ marginTop: 6 }} />}</span>
                             </Grid>
                         </Grid>
                     </Grid>
@@ -101,14 +125,14 @@ export default function Content(props) {
 
             <Box my="2rem">
                 <Grid container spacing={2} justify='space-around'>
-                    <Grid item md='auto' >
-                        <Grid container>
+                    <Grid item xs={6} md='auto' >
+                        <Grid container justify='space-around'>
                             <Grid item >
                                 <span className={classes.block, classes.center}> {props.weatherData ? props.weatherData.current.condition.text : <Skeleton animation="wave" height={10} width="100px" style={{ marginTop: 6 }} />}</span>
                             </Grid>
                         </Grid>
                         <hr />
-                        <Grid container>
+                        <Grid container justify='space-around'>
                             <Grid item>
                                 <span className={classes.block}>
                                     {props.weatherData ? <img src={props.weatherData.current.condition.icon} /> : <Skeleton animation="wave" variant="rect" width='100px' className={classes.media} />}
@@ -116,74 +140,74 @@ export default function Content(props) {
                             </Grid>
                         </Grid>
                     </Grid>
-                    <Grid item md='auto'  >
-                        <Grid container>
+                    <Grid item xs={6} md='auto'  >
+                        <Grid container justify='space-around'>
                             <Grid item className={classes.flex} >
                                 <EmojiNatureIcon color='secondary'></EmojiNatureIcon>
                                 <span className={classes.block}>Temp</span>
                             </Grid>
                         </Grid>
                         <hr />
-                        <Grid container>
+                        <Grid container justify='space-around'>
                             <Grid item>
                                 <span className={classes.bold}> {props.weatherData ? props.weatherData.current.temp_c + ' Celsius' : <Skeleton animation="wave" height={10} width="100px" style={{ marginTop: 6 }} />}</span>
                             </Grid>
                         </Grid>
-                        <Grid container>
+                        <Grid container justify='space-around'>
                             <Grid item >
                                 <span className={classes.bold}> {props.weatherData ? props.weatherData.current.temp_f + ' Fahrenheit' : <Skeleton animation="wave" height={10} width="100px" style={{ marginTop: 6 }} />}</span>
                             </Grid>
                         </Grid>
 
                     </Grid>
-                    <Grid item md='auto'  >
-                        <Grid container>
+                    <Grid item xs={6} md='auto'  >
+                        <Grid container justify='space-around'>
                             <Grid item className={classes.flex}>
                                 <CloudCircleRoundedIcon color='secondary'></CloudCircleRoundedIcon>
                                 <span className={classes.block}>Humidity</span>
                             </Grid>
                         </Grid>
                         <hr />
-                        <Grid container>
+                        <Grid container justify='space-around'>
                             <Grid item>
                                 <span className={classes.bold}> {props.weatherData ? props.weatherData.current.humidity + ' %' : <Skeleton animation="wave" height={10} width="100px" style={{ marginTop: 6 }} />}</span>
                             </Grid>
                         </Grid>
                     </Grid>
-                    <Grid item md='auto'  >
-                        <Grid container>
+                    <Grid item xs={6} md='auto'  >
+                        <Grid container justify='space-around'>
                             <Grid item className={classes.flex} >
                                 <WavesIcon color='secondary'></WavesIcon>
                                 <span className={classes.block}>Wind</span>
                             </Grid>
                         </Grid>
                         <hr />
-                        <Grid container>
+                        <Grid container justify='space-around'>
                             <Grid item>
                                 <span className={classes.bold}> {props.weatherData ? props.weatherData.current.wind_kph + ' kph' : <Skeleton animation="wave" height={10} width="100px" style={{ marginTop: 6 }} />}</span>
                             </Grid>
                         </Grid>
-                        <Grid container>
+                        <Grid container justify='space-around'>
                             <Grid item >
                                 <span className={classes.bold}> {props.weatherData ? props.weatherData.current.wind_mph + ' mph' : <Skeleton animation="wave" height={10} width="100px" style={{ marginTop: 6 }} />}</span>
                             </Grid>
                         </Grid>
 
                     </Grid>
-                    <Grid item md='auto'  >
-                        <Grid container>
+                    <Grid item xs={6} md='auto'  >
+                        <Grid container justify='space-around'>
                             <Grid item className={classes.flex} >
                                 <VerticalAlignBottomRoundedIcon color='secondary'></VerticalAlignBottomRoundedIcon>
                                 <span className={classes.block}>Pressure</span>
                             </Grid>
                         </Grid>
                         <hr />
-                        <Grid container>
+                        <Grid container justify='space-around'>
                             <Grid item>
                                 <span className={classes.bold}> {props.weatherData ? props.weatherData.current.pressure_in + ' in' : <Skeleton animation="wave" height={10} width="100px" style={{ marginTop: 6 }} />}</span>
                             </Grid>
                         </Grid>
-                        <Grid container>
+                        <Grid container justify='space-around'>
                             <Grid item >
                                 <span className={classes.bold}> {props.weatherData ? props.weatherData.current.pressure_mb + ' mb' : <Skeleton animation="wave" height={10} width="100px" style={{ marginTop: 6 }} />}</span>
                             </Grid>
