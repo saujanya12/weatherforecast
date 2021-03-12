@@ -29,7 +29,7 @@ function App() {
 
   // fetch weather data of city entered by user.
   const fetchWeatherData = () => {
-    let api = city ? `http://api.weatherapi.com/v1/current.json?key=4350d0234eda423896c82350210403&q=${city}&aqi=yes` : ''
+    let api = city ? `http://api.weatherapi.com/v1/current.json?key=YOUR KEY&q=${city}&aqi=yes` : ''
     fetch(api)
       .then((res) => res.json())
       .then((data) => {
